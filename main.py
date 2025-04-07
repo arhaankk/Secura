@@ -1,6 +1,6 @@
 from flask import Flask, request
 from flask_restx import Api, Resource, fields
-from detector import CodeDetector  # your vulnerability class
+from detector import CodeDetector  
 
 
 app = Flask(__name__)
@@ -15,7 +15,6 @@ api = Api(app, version='1.0', title='Secura API',
 
 ns = api.namespace("secura", description="Code vulnerability analyzer")
 
-# Request model
 code_model = api.model("CodeInput", {
     "code": fields.String(required=True, description="Code to analyze")
 })
@@ -32,7 +31,7 @@ class Analyzer(Resource):
         report = detector.run_pipeline()
         if report is None:
             return {"error": "Analysis failed"}, 500
-        return report
+        return report, 200
 
 if __name__ == "__main__":
     app.run(debug=True, port=8000)
