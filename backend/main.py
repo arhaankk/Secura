@@ -1,6 +1,6 @@
 from flask import Flask, request
 from flask_restx import Api, Resource, fields
-from detector import CodeDetector  
+from backend.app.detector import CodeDetector  
 
 
 app = Flask(__name__)
