@@ -1,9 +1,12 @@
 from flask import Flask, request
 from flask_restx import Api, Resource, fields
-from backend.app.detector import CodeDetector  
+from flask_cors import CORS
+from app.detector import CodeDetector  
+
 
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/", methods=["GET"])
 def home():
