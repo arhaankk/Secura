@@ -1,10 +1,12 @@
 import React from "react";
 
 const OutputCard = ({ output }) => {
-  // Define a fixed height for the card.
-  const cardClasses =
-    "bg-white text-black p-6 rounded-xl shadow-md w-full h-[700px] overflow-y-auto";
+  // Determine the card height based on whether output exists.
+  const cardHeight = output ? "h-[700px]" : "h-[200px]";
+  // Include transition classes for a smooth height change
+  const cardClasses = `bg-gray-50 text-black p-6 rounded-xl shadow-md w-full ${cardHeight} overflow-y-auto transition-all duration-500`;
 
+  // If output is not yet available, show the small card without additional content.
   if (!output) {
     return (
       <div className={cardClasses}>
@@ -13,7 +15,7 @@ const OutputCard = ({ output }) => {
     );
   }
 
-  // If the output is an object, format each section nicely.
+  // When output is available and is an object, display its structured content.
   if (typeof output === "object") {
     const { cwe, error, fix, explanation } = output;
     return (
@@ -54,7 +56,7 @@ const OutputCard = ({ output }) => {
     );
   }
 
-  // Fallback: if output is not an object, display it as plain text.
+  // Fallback: Display output as plain text.
   return (
     <div className={cardClasses}>
       <h2 className="text-xl font-semibold mb-2">AI Output</h2>

@@ -151,6 +151,8 @@ Here’s an example of the structured JSON output from the backend:
 | AI Model   | GPT-4o (via OpenAI API)                              |
 
 
+## Documentation
+[Secura - Project Report](Report.pdf)
 
 ## License
 
