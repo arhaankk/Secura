@@ -4,7 +4,7 @@ from flask_cors import CORS
 from app.detector import CodeDetector  
 
 
-
+\
 app = Flask(__name__)
 CORS(app)
 

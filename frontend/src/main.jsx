@@ -18,7 +18,7 @@ const Main = () => {
         body: JSON.stringify({ code: input }),
       });
       const data = await response.json();
-      setOutput(data); // storing full response object if needed for display
+      setOutput(data); 
     } catch (error) {
       setOutput("Error: " + error.message);
     } finally {
