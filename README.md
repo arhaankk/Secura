@@ -1,16 +1,16 @@
-# 🛡️ Secura: Code Vulnerability Detection & Auto-Fix Demo
+# Secura: Code Vulnerability Detection & Auto-Fix Demo
 
 > **An LLM-powered tool to detect, fix, and explain code vulnerabilities — with a strong emphasis on usability and clarity.**
 
----
+
 
 <!-- 📽️ To add a demo video, embed like so:
 [![Watch the video](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID/maxresdefault.jpg)](https://youtu.be/YOUTUBE_VIDEO_ID)
 -->
 
----
 
-## 🔍 Overview
+
+## Overview
 
 **Secura** is a demo application developed for offline evaluation of the [SecurityEval Dataset](https://s2e-lab.github.io/preprints/msr4ps22-preprint.pdf). It leverages OpenAI’s GPT-4o to:
 
@@ -21,7 +21,7 @@
 
 > Built for speed, clarity, and developer-friendly interaction.
 
----
+
 
 ## How It Works
 
@@ -35,7 +35,7 @@
    - A clear explanation of the issue and how it was resolved
 5. The frontend elegantly displays all returned data to the user.
 
----
+
 
 ## Project Structure
 
@@ -54,7 +54,7 @@ secura/
 └── README.md               # Project documentation 
 ```
 
----
+
 
 ## Getting Started
 
@@ -64,7 +64,7 @@ secura/
 - [Python](https://www.python.org/downloads/) 3.10+
 - OpenAI API key (saved as `OPENAI_API_KEY` in a `.env` file)
 
----
+
 
 ### Backend Setup
 
@@ -86,7 +86,7 @@ echo "OPENAI_API_KEY=your-key-here" > .env
 python main.py
 ```
 
----
+
 
 ### Frontend Setup
 
@@ -103,7 +103,7 @@ npm run dev
 
 > Make sure the backend is running at [http://localhost:8000](http://localhost:8000)
 
----
+
 
 ## Sample Output (JSON)
 
@@ -129,7 +129,7 @@ Here’s an example of the structured JSON output from the backend:
 }
 ```
 
----
+
 
 ## Key Features
 
@@ -139,7 +139,7 @@ Here’s an example of the structured JSON output from the backend:
 - **Human-Readable Summaries** — Converts complex issues into understandable narratives  
 - **Elegant Interface** — Built with React, Tailwind CSS, and Framer Motion for a seamless UX
 
----
+
 
 ## Tech Stack
 
@@ -149,12 +149,10 @@ Here’s an example of the structured JSON output from the backend:
 | Backend    | Flask, Flask-RESTX, OpenAI API, Python-dotenv        |
 | AI Model   | GPT-4o (via OpenAI API)                              |
 
----
+
 
 ## License
 
 This project is for demonstration and educational purposes only. All rights to dataset and model usage belong to their respective owners.
 
----
 
-> Made with ❤️ by Arhaan Khaku
