@@ -1,11 +1,10 @@
 # 🛡️ Secura: Code Vulnerability Detection & Auto-Fix Demo
 
-**An LLM-powered tool to detect, fix, and explain code vulnerabilities — with a strong focus on usability.**
+> **An LLM-powered tool to detect, fix, and explain code vulnerabilities — with a strong emphasis on usability and clarity.**
 
 ---
 
-
-<!-- Once you upload your video, embed it like this:
+<!-- 📽️ To add a demo video, embed like so:
 [![Watch the video](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID/maxresdefault.jpg)](https://youtu.be/YOUTUBE_VIDEO_ID)
 -->
 
@@ -13,94 +12,102 @@
 
 ## 🔍 Overview
 
-**Secura** is a demo application built for the offline evaluation of the [SecurityEval Dataset](https://s2e-lab.github.io/preprints/msr4ps22-preprint.pdf). It utilizes prompt-engineered LLMs (using GPT-4o) to:
-- **Detect** security vulnerabilities in code samples
-- **Identify** CWE types and attack vectors
-- **Generate** a fixed version of the code
-- **Explain** the vulnerability and the applied fix
+**Secura** is a demo application developed for offline evaluation of the [SecurityEval Dataset](https://s2e-lab.github.io/preprints/msr4ps22-preprint.pdf). It leverages OpenAI’s GPT-4o to:
 
-The project emphasizes **usability** by providing a straightforward, intuitive web interface along with clear, structured analysis output.
+- **Detect** security vulnerabilities in source code  
+- **Classify** them using CWE IDs and detailed descriptions  
+- **Generate** secure, fixed versions of the code  
+- **Explain** vulnerabilities and applied remediations in plain English
 
----
-
-## 🧠 How It Works
-
-1. A user inputs potentially vulnerable code through the web interface.
-2. The code is submitted to a Flask backend via a REST API.
-3. The backend leverages OpenAI's GPT-4o with a structured prompt in the `CodeDetector` class.
-4. The LLM returns a JSON report containing:
-   - CWE ID, title, and description
-   - Vulnerability location and attack type
-   - Fixed code along with fix details
-   - A concise explanation of the detected vulnerability and the remediation applied
-5. The frontend displays the results clearly for the user.
+> Built for speed, clarity, and developer-friendly interaction.
 
 ---
 
-## 📂 Project Structure
+## How It Works
+
+1. A user submits potentially vulnerable code via a web interface.
+2. The code is sent to the backend (Flask) through a RESTful API.
+3. The backend calls GPT-4o with a structured prompt using the `CodeDetector` module.
+4. GPT-4o analyzes the code and returns a structured JSON response with:
+   - CWE information (ID, title, description)
+   - Error location and attack type
+   - Fixed code with a description of changes
+   - A clear explanation of the issue and how it was resolved
+5. The frontend elegantly displays all returned data to the user.
+
+---
+
+## Project Structure
 
 ```bash
 secura/
 ├── frontend/               # ReactJS + Tailwind frontend
 │   ├── components/         # InputForm, OutputCard, etc.
 │   ├── main.jsx            # Main app logic
-│   └── home.jsx            # Landing page with start button
+│   └── home.jsx            # Landing page with UI intro
 │
 ├── backend/                # Flask backend
-│   ├── main.py             # API server
-│   ├── detector.py         # LLM interaction and vulnerability analysis
-│   └── .env                # Environment variables including your OpenAI API key
+│   ├── main.py             # REST API server
+│   ├── detector.py         # LLM interaction logic
+│   └── .env                # OpenAI API key and environment settings
 │
-└── README.md               # Project documentation
-
+└── README.md               # Project documentation 
 ```
-# 🚀 Getting Started
 
-## 🔧 Requirements
-- **Node.js (v18+)**
-- **Python 3.10+**
-- **OpenAI API Key** (to be set in `.env` as `OPENAI_API_KEY`)
+---
 
-## 🖥️ Backend Setup
-1. **Navigate to the backend folder:**
-   ```bash
-   cd backend
-   ```
-2. **Create and activate a virtual environment:**
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate  # or venv\Scripts\activate on Windows
-   ```
-3. **Install the required packages:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. **Set your OpenAI API key:**
-   ```bash
-   echo "OPENAI_API_KEY=your-key-here" > .env
-   ```
-5. **Run the Flask server:**
-   ```bash
-   python main.py
-   ```
+## Getting Started
 
-## 🌐 Frontend Setup
-1. **Navigate to the frontend folder:**
-   ```bash
-   cd frontend
-   ```
-2. **Install the Node dependencies:**
-   ```bash
-   npm install
-   ```
-3. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
-4. **Ensure the Flask server is running at:** [http://localhost:8000](http://localhost:8000)
+### Prerequisites
 
-## 🧪 Sample Result Format
-Below is an example of the JSON format returned by the backend:
+- [Node.js](https://nodejs.org/) (v18+)
+- [Python](https://www.python.org/downloads/) 3.10+
+- OpenAI API key (saved as `OPENAI_API_KEY` in a `.env` file)
+
+---
+
+### Backend Setup
+
+```bash
+# Step 1: Navigate to the backend directory
+cd backend
+
+# Step 2: Set up and activate virtual environment
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Step 3: Install dependencies
+pip install -r requirements.txt
+
+# Step 4: Add your OpenAI key to .env
+echo "OPENAI_API_KEY=your-key-here" > .env
+
+# Step 5: Run the Flask server
+python main.py
+```
+
+---
+
+### Frontend Setup
+
+```bash
+# Step 1: Navigate to the frontend directory
+cd frontend
+
+# Step 2: Install dependencies
+npm install
+
+# Step 3: Start the development server
+npm run dev
+```
+
+> Make sure the backend is running at [http://localhost:8000](http://localhost:8000)
+
+---
+
+## Sample Output (JSON)
+
+Here’s an example of the structured JSON output from the backend:
 
 ```json
 {
@@ -122,14 +129,32 @@ Below is an example of the JSON format returned by the backend:
 }
 ```
 
-## ✨ Features
-- **LLM-Powered Analysis:** Utilizes GPT-4o for vulnerability detection and remediation.
-- **CWE-Based Classification:** Clearly identifies vulnerabilities via CWE IDs, titles, and descriptions.
-- **Automated Code Fixing:** Generates a fixed version of the provided code.
-- **User-Friendly Explanations:** Offers concise explanations for detected vulnerabilities and applied fixes.
-- **Intuitive Interface:** Built with React, Tailwind CSS, and Framer Motion for a smooth user experience.
+---
 
-## 🛠️ Technologies Used
-- **Frontend:** React.js, Tailwind CSS, Framer Motion, Vite
-- **Backend:** Flask, Flask-RESTX, OpenAI API, dotenv
-- **Model:** GPT-4o by OpenAI
+## Key Features
+
+- **LLM-Powered Analysis** — Uses GPT-4o for vulnerability detection and explanation  
+- **CWE Classification** — Organizes results using industry-standard CWE taxonomy  
+- **Auto-Generated Fixes** — Suggests and explains secure alternatives to the input code  
+- **Human-Readable Summaries** — Converts complex issues into understandable narratives  
+- **Elegant Interface** — Built with React, Tailwind CSS, and Framer Motion for a seamless UX
+
+---
+
+## Tech Stack
+
+| Layer      | Technologies Used                                    |
+|------------|------------------------------------------------------|
+| Frontend   | React.js, Tailwind CSS, Framer Motion, Vite          |
+| Backend    | Flask, Flask-RESTX, OpenAI API, Python-dotenv        |
+| AI Model   | GPT-4o (via OpenAI API)                              |
+
+---
+
+## License
+
+This project is for demonstration and educational purposes only. All rights to dataset and model usage belong to their respective owners.
+
+---
+
+> Made with ❤️ by Arhaan Khaku
