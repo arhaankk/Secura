@@ -2,7 +2,7 @@ import TitleMessage from "./components/title.jsx";
 import StartButton from "./components/startButton.jsx";
 import bg from "./assets/bg.png";
 
-function App() {
+function Home() {
   return (
     <div
       className="min-h-screen bg-cover bg-center bg-no-repeat text-white"
@@ -16,4 +16,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
