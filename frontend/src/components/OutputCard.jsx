@@ -1,9 +1,13 @@
 import React from "react";
 
 const OutputCard = ({ output }) => {
+  // Define a fixed height for the card.
+  const cardClasses =
+    "bg-white text-black p-6 rounded-xl shadow-md w-full h-[700px] overflow-y-auto";
+
   if (!output) {
     return (
-      <div className="bg-white text-black p-6 rounded-xl shadow-md w-full h-auto overflow-y-auto">
+      <div className={cardClasses}>
         <h2 className="text-xl font-semibold mb-2">Code Analysis Report</h2>
       </div>
     );
@@ -13,7 +17,7 @@ const OutputCard = ({ output }) => {
   if (typeof output === "object") {
     const { cwe, error, fix, explanation } = output;
     return (
-      <div className="bg-white text-black p-6 rounded-xl shadow-md w-full h-auto overflow-y-auto">
+      <div className={cardClasses}>
         <h2 className="text-xl font-semibold mb-4">Code Analysis Report</h2>
         {cwe && (
           <div className="mb-4">
@@ -52,7 +56,7 @@ const OutputCard = ({ output }) => {
 
   // Fallback: if output is not an object, display it as plain text.
   return (
-    <div className="bg-white text-black p-6 rounded-xl shadow-md w-full h-auto overflow-y-auto">
+    <div className={cardClasses}>
       <h2 className="text-xl font-semibold mb-2">AI Output</h2>
       <p className="whitespace-pre-wrap">{output}</p>
     </div>

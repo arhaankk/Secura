@@ -47,7 +47,7 @@ const Main = () => {
         </div>
 
         {/* Output Area (placed lower with extra margin-top) */}
-        <div className="w-full max-w-6xl mt-20">
+        <div className="w-full max-w-6xl mt-14">
           <OutputCard output={output} />
         </div>
       </div>
