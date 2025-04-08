@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import bg from "./assets/bg.png";
 import OutputCard from "./components/OutputCard";
 import InputForm from "./components/InputForm";
@@ -18,7 +19,7 @@ const Main = () => {
         body: JSON.stringify({ code: input }),
       });
       const data = await response.json();
-      setOutput(data); 
+      setOutput(data);
     } catch (error) {
       setOutput("Error: " + error.message);
     } finally {
@@ -35,6 +36,13 @@ const Main = () => {
       exit={{ opacity: 0, scale: 0.95, y: -30 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
+      {/* Top Right Home Link */}
+      <Link
+        to="/"
+        aria-label="Secura"
+        className="absolute top-16 left-24 block w-40 h-12 z-50"
+      />
+
       <div className="flex flex-col items-center justify-center ">
         {/* Input Area */}
         <div className="w-full max-w-lg mt-24">
@@ -47,7 +55,7 @@ const Main = () => {
         </div>
 
         {/* Output Area (placed lower with extra margin-top) */}
-        <div className="w-full max-w-6xl mt-14">
+        <div className="w-full max-w-6xl mt-20">
           <OutputCard output={output} />
         </div>
       </div>
